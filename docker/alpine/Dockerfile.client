@@ -1,0 +1,11 @@
+FROM ss:base
+
+COPY client.json /etc/shadowsocks/client.json
+
+ENV CONFIG_FILE /etc/shadowsocks/client.json
+ENV ARGS=
+
+USER nobody
+
+CMD exec ss-local -c $CONFIG_FILE $ARGS
+
